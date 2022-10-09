@@ -8,15 +8,16 @@ const nextConfig = {
 		APP_ENV: process.env.REACT_APP_ENV,
 		APP_SERVER_URL: process.env.REACT_SERVER_URL,
 	},
-	//чтобы апи открывался не внутри некста на локалхост  3000
+	// чтоюы по localhost:3000/api открывался апи бекенда ttp://localhost:4200/api/
+	//  а не апи внутри некстжс
 	async rewrites() {
 		return [
 			{
-				source: '/api/:path*',
+				source: '/api/:path*', //все что мы напишем после апи будет переходить туда же, но с другим локалхост
 				destination: `http://localhost:4200/api/:path*`,
 			},
 			{
-				source: '/uploads/:path*',
+				source: '/uploads/:path*', // для статики
 				destination: `http://localhost:4200/uploads/:path*`,
 			},
 		];
