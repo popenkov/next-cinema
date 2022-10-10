@@ -1,19 +1,13 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { FC } from 'react';
+import { FC } from 'react'
 
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout'
 
-import styles from './/Home.module.scss';
-
-import { IHome } from './home.interface';
-
-const Home: FC<IHome> = () => {
+const Home: FC = () => {
 	return (
 		<Layout>
-			<h1>Hello, world</h1>
+			<h1>Home page</h1>
 		</Layout>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home
