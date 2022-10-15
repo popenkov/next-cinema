@@ -1,3 +1,4 @@
+
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 
@@ -9,6 +10,7 @@ import { IMenu } from './menu.types';
 // 	ssr: false,
 // });
 
+
 const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 	return (
 		<div className={styles.menu}>
@@ -17,6 +19,7 @@ const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 				{items.map((item) => (
 					<MenuItem key={item.link} item={item} />
 				))}
+
 				{title === 'General'}
 			</ul>
 		</div>
@@ -24,3 +27,4 @@ const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 };
 
 export default Menu;
+

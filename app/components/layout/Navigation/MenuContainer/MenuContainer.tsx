@@ -1,3 +1,4 @@
+
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 
@@ -9,10 +10,12 @@ import { menus } from './menu.data';
 // 	ssr: false,
 // })
 
+
 const MenuContainer: FC = () => {
 	return (
 		<div>
 			<Menu menu={menus[0]} />
+
 			{/* <Menu menu={menus[1]} /> */}
 			{/* <DynamicGenreMenu /> */}
 			<GenreMenu />
@@ -22,3 +25,4 @@ const MenuContainer: FC = () => {
 };
 
 export default MenuContainer;
+
