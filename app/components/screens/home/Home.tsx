@@ -1,18 +1,21 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { FC } from 'react';
 
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout';
+import Heading from '@/components/ui/heading/Heading';
 
-import styles from './/Home.module.scss';
+import { Meta } from '@/utils/meta';
 
-import { IHome } from './home.interface';
+import { IHome } from './home.types';
 
 const Home: FC<IHome> = () => {
 	return (
-		<Layout>
-			<h1>Hello, world</h1>
-		</Layout>
+		<Meta title="Online cinema" description="Watch movies online">
+			<Heading
+				title="Watch movies online"
+				className="text-gray-300 mb-8 text-xl"
+			/>
+			<h1>Home page</h1>
+		</Meta>
 	);
 };
 

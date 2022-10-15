@@ -1,11 +1,13 @@
-import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 
-import Menu from '../Menu'
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader';
 
-import { usePopularGenres } from './usePopularGenres'
+import Menu from '../Menu';
+
+import { usePopularGenres } from './usePopularGenres';
 
 const GenreMenu = () => {
-	const { isLoading, data } = usePopularGenres()
+	const { isLoading, data } = usePopularGenres();
+
 
 	return isLoading ? (
 		<div className="mx-11 mb-6">
@@ -18,7 +20,7 @@ const GenreMenu = () => {
 				items: data || [],
 			}}
 		/>
-	)
-}
+	);
+};
 
-export default GenreMenu
+export default GenreMenu;

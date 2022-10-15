@@ -1,17 +1,20 @@
-import { useQuery } from 'react-query'
 
-import { GenreService } from '@/services/genre/genre.service'
+import { useQuery } from 'react-query';
 
-import { toastError } from '@/utils/api/withToastrErrorRedux'
+import { GenreService } from '@/services/genre/genre.service';
 
-import { getGenreUrl } from '@/configs/url.config'
+// import { toastError } from '@/utils/api/withToastrErrorRedux'
+import { getGenreUrl } from '@/configs/url.config';
 
-import { IMenuItem } from '../menu.types'
+import { IMenuItem } from '../menu.types';
+
 
 export const usePopularGenres = () => {
 	const queryData = useQuery(
 		'popular genres menu',
-		() => GenreService.getPopularGenres(),
+
+		() => GenreService.getAll(),
+
 		{
 			select: ({ data }) =>
 				data
@@ -24,10 +27,12 @@ export const usePopularGenres = () => {
 					)
 					.splice(0, 4),
 			onError(error) {
-				toastError(error, 'Popular genres menu')
+
+				// toastError(error, 'Popular genres menu');
 			},
 		}
-	)
+	);
 
-	return queryData
-}
+	return queryData;
+};
+

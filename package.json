@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "axios": "^1.1.2",
     "classnames": "^2.3.2",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-loading-skeleton": "^3.1.0",
+    "react-query": "^3.39.2",
     "sass": "^1.53.0"
   },
   "devDependencies": {
