@@ -11,6 +11,7 @@ export const MaterialIcon: FC<{ name: TypeMaterialIconName }> = ({ name }) => {
 	const IconComponent = MaterialIcons[name];
 
 	// if (isRenderClient)
+	// если не найду иконку, то по дефолту иконка справа
 	return <IconComponent /> || <MaterialIcons.MdDragIndicator />;
 	// else return null
 };
