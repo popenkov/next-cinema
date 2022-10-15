@@ -1,3 +1,4 @@
+
 import { MetaNoIndex } from '.';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -11,20 +12,24 @@ import { onlyText } from '../string/clearText';
 
 import { ISeo } from './meta.types';
 
+
 export const Meta: FC<ISeo> = ({
 	title,
 	description,
 	image = null,
 	children,
 }) => {
+
 	const { asPath } = useRouter();
 	const currentUrl = `${process.env.APP_URL}${asPath}`;
 	// если есть description, то страница общедостпная и должна индексироваться
 	// страница администратора не должна индиксироваться и для этого есть спец теги
+
 	return (
 		<>
 			{description ? (
 				<Head>
+
 					<title itemProp="headline">{titleMerge(title)}</title>
 					<meta
 						itemProp="description"
@@ -39,6 +44,7 @@ export const Meta: FC<ISeo> = ({
 					<meta property="og:site_name" content={siteName} />
 					<meta
 						property="og:description"
+
 						content={onlyText(description, 197)}
 					/>
 				</Head>
@@ -47,5 +53,7 @@ export const Meta: FC<ISeo> = ({
 			)}
 			{children}
 		</>
+
 	);
 };
+

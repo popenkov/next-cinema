@@ -1,3 +1,4 @@
+
 import { FC, MouseEvent } from 'react';
 
 import { MaterialIcon } from '@/components/ui/icons/MaterialIcon';
@@ -12,6 +13,7 @@ const LogoutButton: FC = () => {
 		// logout();
 	};
 
+
 	return (
 		<li>
 			<a onClick={logoutHandler}>
@@ -19,6 +21,7 @@ const LogoutButton: FC = () => {
 				<span>Logout</span>
 			</a>
 		</li>
+
 	);
 };
 

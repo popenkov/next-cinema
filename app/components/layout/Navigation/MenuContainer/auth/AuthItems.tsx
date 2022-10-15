@@ -1,3 +1,4 @@
+
 import { FC } from 'react';
 
 // import { useAuth } from '@/hooks/useAuth'
@@ -8,6 +9,7 @@ import MenuItem from '../MenuItem';
 
 const AuthItems: FC = () => {
 	const { user } = useAuth();
+
 
 	return (
 		<>
@@ -20,7 +22,9 @@ const AuthItems: FC = () => {
 							title: 'Profile',
 						}}
 					/>
+
 					{/* <LogoutButton /> */}
+
 				</>
 			) : (
 				<MenuItem item={{ icon: 'MdLogin', link: '/auth', title: 'Login' }} />
@@ -30,14 +34,18 @@ const AuthItems: FC = () => {
 				<MenuItem
 					item={{
 						icon: 'MdOutlineLock',
+
 						// link: getAdminHomeUrl(),
 						link: '',
+
 						title: 'Admin panel',
 					}}
 				/>
 			)}
 		</>
+
 	);
 };
 
 export default AuthItems;
+
