@@ -1,5 +1,5 @@
-// import * as userActions from './user/user.actions'
+import * as userActions from './user/user.actions';
 
-// export const allActions = {
-// 	...userActions,
-// }
+export const allActions = {
+	...userActions,
+};
