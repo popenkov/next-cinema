@@ -17,6 +17,7 @@ export const userSlice = createSlice({
 	// асинхронные редюсеры
 	extraReducers: (builder) => {
 		builder
+			// когда загрузка в процессе
 			.addCase(register.pending, (state) => {
 				state.isLoading = true;
 			})
