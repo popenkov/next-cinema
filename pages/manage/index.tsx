@@ -6,6 +6,7 @@ const AdminPage: NextPageAuth = () => {
 	return <Admin />
 }
 
+// такой параметр делает страницу только для админа
 AdminPage.isOnlyAdmin = true
 
 export default AdminPage
