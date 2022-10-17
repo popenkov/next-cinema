@@ -1,9 +1,8 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import MoviesContainer from './MoviesContainer/MoviesContainer'
-import Search from './Search/Search'
-
-import styles from './Sidebar.module.scss'
+import MoviesContainer from './MoviesContainer/MoviesContainer';
+import Search from './Search/Search';
+import styles from './Sidebar.module.scss';
 
 const Sidebar: FC = () => {
 	return (
@@ -11,7 +10,7 @@ const Sidebar: FC = () => {
 			<Search />
 			<MoviesContainer />
 		</div>
-	)
-}
+	);
+};
 
-export default Sidebar
+export default Sidebar;

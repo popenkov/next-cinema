@@ -1,17 +1,19 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { FC } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC } from 'react';
 
-import { IWidgetMovie } from '../../MoviesContainer/movie.types'
+import { getMovieUrl } from '@/configs/url.config';
 
-import styles from './SearchList.module.scss'
+import { IWidgetMovie } from '../../MoviesContainer/movie.types';
+
+import styles from './SearchList.module.scss';
 
 const SearchList: FC<{ movies: IWidgetMovie[] }> = ({ movies }) => {
 	return (
 		<div className={styles.list}>
 			{movies.length ? (
 				movies.map((movie) => (
-					<Link key={movie._id} href={`/movie/${movie.slug}`}>
+					<Link key={movie._id} href={getMovieUrl(movie.slug)}>
 						<a>
 							<Image
 								src={movie.poster || ''}
@@ -30,7 +32,7 @@ const SearchList: FC<{ movies: IWidgetMovie[] }> = ({ movies }) => {
 				<div className="text-white text-center my-4">Movies not found!</div>
 			)}
 		</div>
-	)
-}
+	);
+};
 
-export default SearchList
+export default SearchList;
