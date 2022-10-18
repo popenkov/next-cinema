@@ -1,12 +1,12 @@
-import Admin from '@/screens/admin/home/Admin'
+import Admin from '@/screens/admin/home/Admin';
 
-import { NextPageAuth } from '@/shared/types/auth.types'
+import { NextPageAuth } from '@/shared/types/auth.types';
 
 const AdminPage: NextPageAuth = () => {
-	return <Admin />
-}
+	return <Admin />;
+};
 
 // такой параметр делает страницу только для админа
-AdminPage.isOnlyAdmin = true
+// AdminPage.isOnlyAdmin = true
 
-export default AdminPage
+export default AdminPage;
