@@ -1,14 +1,13 @@
-import cn from 'classnames'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
+import cn from 'classnames';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { FC } from 'react';
 
-import { INavItem } from './admin-navigation.interface'
-
-import styles from './AdminNavigation.module.scss'
+import styles from './AdminNavigation.module.scss';
+import { INavItem } from './admin-navigation.interface';
 
 const AdminNavItem: FC<{ navItem: INavItem }> = ({ navItem }) => {
-	const { asPath } = useRouter()
+	const { asPath } = useRouter();
 
 	return (
 		<li>
@@ -18,7 +17,7 @@ const AdminNavItem: FC<{ navItem: INavItem }> = ({ navItem }) => {
 				</a>
 			</Link>
 		</li>
-	)
-}
+	);
+};
 
-export default AdminNavItem
+export default AdminNavItem;
