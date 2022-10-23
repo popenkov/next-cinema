@@ -1,11 +1,11 @@
-import UserList from '@/screens/admin/users/UserList'
+import UserList from '@/screens/admin/users/UserList';
 
-import { NextPageAuth } from '@/shared/types/auth.types'
+import { NextPageAuth } from '@/shared/types/auth.types';
 
 const UserListPage: NextPageAuth = () => {
-	return <UserList />
-}
+	return <UserList />;
+};
 
-UserListPage.isOnlyAdmin = true
+// UserListPage.isOnlyAdmin = true
 
-export default UserListPage
+export default UserListPage;
