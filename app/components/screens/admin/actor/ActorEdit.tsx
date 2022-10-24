@@ -1,20 +1,21 @@
-import { IActorEditInput } from './actor-edit.interface'
-import { useActorEdit } from './useActorEdit'
-import { FC } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { FC } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
-import formStyles from '@/components/shared/admin/adminForm.module.scss'
-import SlugField from '@/components/ui/form-elements/SlugField/SlugField'
-import UploadField from '@/components/ui/form-elements/UploadField/UploadField'
-import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
+import formStyles from '@/components/shared/admin/adminForm.module.scss';
+import SlugField from '@/components/ui/form-elements/SlugField/SlugField';
+import UploadField from '@/components/ui/form-elements/UploadField/UploadField';
+import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 
-import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
-import Button from '@/ui/form-elements/Button'
-import Field from '@/ui/form-elements/Field'
-import Heading from '@/ui/heading/Heading'
+import AdminNavigation from '@/ui/admin-navigation/AdminNavigation';
+import Button from '@/ui/form-elements/Button';
+import Field from '@/ui/form-elements/Field';
+import Heading from '@/ui/heading/Heading';
 
-import { Meta } from '@/utils/meta'
-import generateSlug from '@/utils/string/generateSlug'
+import { Meta } from '@/utils/meta';
+import generateSlug from '@/utils/string/generateSlug';
+
+import { IActorEditInput } from './actor-edit.interface';
+import { useActorEdit } from './useActorEdit';
 
 const ActorEdit: FC = () => {
 	const {
@@ -26,9 +27,9 @@ const ActorEdit: FC = () => {
 		control,
 	} = useForm<IActorEditInput>({
 		mode: 'onChange',
-	})
+	});
 
-	const { isLoading, onSubmit } = useActorEdit(setValue)
+	const { isLoading, onSubmit } = useActorEdit(setValue);
 
 	return (
 		<Meta title="Edit actor">
@@ -77,7 +78,7 @@ const ActorEdit: FC = () => {
 				</form>
 			)}
 		</Meta>
-	)
-}
+	);
+};
 
-export default ActorEdit
+export default ActorEdit;

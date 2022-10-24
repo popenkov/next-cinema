@@ -32,12 +32,6 @@ const Auth: FC = () => {
 	});
 
 	const { login, register } = useActions();
-	// const login = (data: IAuthInput) => {
-	// 	alert(data);
-	// };
-	// const register = (data: IAuthInput) => {
-	// 	alert(data);
-	// };
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data);

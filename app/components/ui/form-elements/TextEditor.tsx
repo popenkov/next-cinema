@@ -1,14 +1,13 @@
-import cn from 'classnames'
-import { ContentState, EditorState, convertToRaw } from 'draft-js'
-import draftToHtml from 'draftjs-to-html'
-import htmlToDraft from 'html-to-draftjs'
-import { FC, useEffect, useState } from 'react'
-import { Editor } from 'react-draft-wysiwyg'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import cn from 'classnames';
+import { ContentState, EditorState, convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+import { FC, useEffect, useState } from 'react';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-import { ITextEditor } from './form.interface'
-
-import styles from './form.module.scss'
+import { ITextEditor } from './form.interface';
+import styles from './form.module.scss';
 
 const TextEditor: FC<ITextEditor> = ({
 	placeholder,
@@ -16,30 +15,36 @@ const TextEditor: FC<ITextEditor> = ({
 	error,
 	value,
 }) => {
-	const [editorState, setEditorState] = useState(EditorState.createEmpty())
+	// все настройки из интернета
 
-	const [isUpdated, setIsUpdated] = useState(false)
+	// создаем пустое дефолтное состояние
+	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
+	const [isUpdated, setIsUpdated] = useState(false);
+
+	// загрузка данных извне (по документации)
 	useEffect(() => {
 		if (!isUpdated) {
-			const defaultValue = value ? value : ''
-			const blocksFromHtml = htmlToDraft(defaultValue)
+			const defaultValue = value ? value : '';
+			const blocksFromHtml = htmlToDraft(defaultValue);
 			const contentState = ContentState.createFromBlockArray(
 				blocksFromHtml.contentBlocks,
 				blocksFromHtml.entityMap
-			)
-			const newEditorState = EditorState.createWithContent(contentState)
-			setEditorState(newEditorState)
+			);
+			const newEditorState = EditorState.createWithContent(contentState);
+			setEditorState(newEditorState);
 		}
-	}, [value, isUpdated])
+	}, [value, isUpdated]);
 
+	// срабатывает при редактировании текста в редакторе
 	const onEditorStateChange = (editorState: EditorState) => {
-		setIsUpdated(true)
-		setEditorState(editorState)
+		setIsUpdated(true);
+		setEditorState(editorState);
 
-		return onChange(draftToHtml(convertToRaw(editorState.getCurrentContent())))
-	}
+		return onChange(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+	};
 
+	// редактор грузится на клиенте. добавляем анимацию для появления
 	return (
 		<div className={cn(styles.common, styles.editorWrapper, 'animate-fade')}>
 			<label>
@@ -53,6 +58,7 @@ const TextEditor: FC<ITextEditor> = ({
 						onEditorStateChange={onEditorStateChange}
 						spellCheck
 						toolbar={{
+							// настройки на сайте react-draft-wysiwyg
 							options: ['inline', 'blockType', 'list'],
 							inline: {
 								inDropdown: false,
@@ -76,7 +82,7 @@ const TextEditor: FC<ITextEditor> = ({
 				{error && <div className={styles.error}>{error.message}</div>}
 			</label>
 		</div>
-	)
-}
+	);
+};
 
-export default TextEditor
+export default TextEditor;
