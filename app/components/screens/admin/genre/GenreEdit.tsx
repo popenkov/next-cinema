@@ -1,30 +1,32 @@
-import { IGenreEditInput } from './genre-edit.interface'
-import { useGenreEdit } from './useGenreEdit'
-import dynamic from 'next/dynamic'
-import { FC } from 'react'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { stripHtml } from 'string-strip-html'
+import dynamic from 'next/dynamic';
+import { FC } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { stripHtml } from 'string-strip-html';
 
-import formStyles from '@/components/shared/admin/adminForm.module.scss'
-import SlugField from '@/components/ui/form-elements/SlugField/SlugField'
-import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
+import formStyles from '@/components/shared/admin/adminForm.module.scss';
+import SlugField from '@/components/ui/form-elements/SlugField/SlugField';
+import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 
-import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
-import Button from '@/ui/form-elements/Button'
-import Field from '@/ui/form-elements/Field'
-import Heading from '@/ui/heading/Heading'
+import AdminNavigation from '@/ui/admin-navigation/AdminNavigation';
+import Button from '@/ui/form-elements/Button';
+import Field from '@/ui/form-elements/Field';
+import Heading from '@/ui/heading/Heading';
 
-import { Meta } from '@/utils/meta'
-import generateSlug from '@/utils/string/generateSlug'
+import { Meta } from '@/utils/meta';
+import generateSlug from '@/utils/string/generateSlug';
+
+import { IGenreEditInput } from './genre-edit.interface';
+import { useGenreEdit } from './useGenreEdit';
 
 // "^[./]((?!scss).)*$",
 
+// грузится только на клиенте. уходит ошибка window is not defined
 const DynamicTextEditor = dynamic(
 	() => import('@/ui/form-elements/TextEditor'),
 	{
 		ssr: false,
 	}
-)
+);
 
 const GenreEdit: FC = () => {
 	const {
@@ -36,9 +38,9 @@ const GenreEdit: FC = () => {
 		getValues,
 	} = useForm<IGenreEditInput>({
 		mode: 'onChange',
-	})
+	});
 
-	const { isLoading, onSubmit } = useGenreEdit(setValue)
+	const { isLoading, onSubmit } = useGenreEdit(setValue);
 
 	return (
 		<Meta title="Edit genre">
@@ -106,7 +108,7 @@ const GenreEdit: FC = () => {
 				)}
 			</form>
 		</Meta>
-	)
-}
+	);
+};
 
-export default GenreEdit
+export default GenreEdit;

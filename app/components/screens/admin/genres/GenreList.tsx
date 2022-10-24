@@ -1,12 +1,13 @@
-import { useGenres } from './useGenres'
-import { FC } from 'react'
+import { FC } from 'react';
 
-import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
-import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
-import Heading from '@/ui/heading/Heading'
+import AdminNavigation from '@/ui/admin-navigation/AdminNavigation';
+import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader';
+import AdminTable from '@/ui/admin-table/AdminTable/AdminTable';
+import Heading from '@/ui/heading/Heading';
 
-import { Meta } from '@/utils/meta'
+import { Meta } from '@/utils/meta';
+
+import { useGenres } from './useGenres';
 
 const GenreList: FC = () => {
 	const {
@@ -16,7 +17,7 @@ const GenreList: FC = () => {
 		deleteAsync,
 		searchTerm,
 		handleSearch,
-	} = useGenres()
+	} = useGenres();
 
 	return (
 		<Meta title="Genres">
@@ -34,7 +35,7 @@ const GenreList: FC = () => {
 				removeHandler={deleteAsync}
 			/>
 		</Meta>
-	)
-}
+	);
+};
 
-export default GenreList
+export default GenreList;
