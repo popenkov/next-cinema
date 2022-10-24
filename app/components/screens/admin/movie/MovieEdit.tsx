@@ -1,28 +1,28 @@
-import dynamic from 'next/dynamic'
-import { FC } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import dynamic from 'next/dynamic';
+import { FC } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
-import formStyles from '@/components/shared/admin/adminForm.module.scss'
+import formStyles from '@/components/shared/admin/adminForm.module.scss';
 
-import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
-import Button from '@/ui/form-elements/Button'
-import Field from '@/ui/form-elements/Field'
-import SlugField from '@/ui/form-elements/SlugField/SlugField'
-import UploadField from '@/ui/form-elements/UploadField/UploadField'
-import Heading from '@/ui/heading/Heading'
-import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import AdminNavigation from '@/ui/admin-navigation/AdminNavigation';
+import Button from '@/ui/form-elements/Button';
+import Field from '@/ui/form-elements/Field';
+import SlugField from '@/ui/form-elements/SlugField/SlugField';
+import UploadField from '@/ui/form-elements/UploadField/UploadField';
+import Heading from '@/ui/heading/Heading';
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader';
 
-import { Meta } from '@/utils/meta'
-import generateSlug from '@/utils/string/generateSlug'
+import { Meta } from '@/utils/meta';
+import generateSlug from '@/utils/string/generateSlug';
 
-import { IMovieEditInput } from './movie-edit.interface'
-import { useAdminActors } from './useAdminActors'
-import { useAdminGenres } from './useAdminGenres'
-import { useMovieEdit } from './useMovieEdit'
+import { IMovieEditInput } from './movie-edit.interface';
+import { useAdminActors } from './useAdminActors';
+import { useAdminGenres } from './useAdminGenres';
+import { useMovieEdit } from './useMovieEdit';
 
 const DynamicSelect = dynamic(() => import('@/ui/select/Select'), {
 	ssr: false,
-})
+});
 
 const MovieEdit: FC = () => {
 	const {
@@ -34,11 +34,11 @@ const MovieEdit: FC = () => {
 		getValues,
 	} = useForm<IMovieEditInput>({
 		mode: 'onChange',
-	})
+	});
 
-	const { onSubmit, isLoading } = useMovieEdit(setValue)
-	const { data: genres, isLoading: isGenresLoading } = useAdminGenres()
-	const { data: actors, isLoading: isActorsLoading } = useAdminActors()
+	const { onSubmit, isLoading } = useMovieEdit(setValue);
+	const { data: genres, isLoading: isGenresLoading } = useAdminGenres();
+	const { data: actors, isLoading: isActorsLoading } = useAdminActors();
 
 	return (
 		<Meta title="Edit movie">
@@ -193,7 +193,7 @@ const MovieEdit: FC = () => {
 				</form>
 			)}
 		</Meta>
-	)
-}
+	);
+};
 
-export default MovieEdit
+export default MovieEdit;

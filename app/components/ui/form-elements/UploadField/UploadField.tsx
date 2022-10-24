@@ -1,11 +1,12 @@
-import { useUpload } from './useUpload'
-import cn from 'classnames'
-import Image from 'next/image'
-import { FC } from 'react'
+import cn from 'classnames';
+import Image from 'next/image';
+import { FC } from 'react';
 
-import SkeletonLoader from '../../skeleton-loader/SkeletonLoader'
-import { IUploadField } from '../form.interface'
-import styles from '../form.module.scss'
+import SkeletonLoader from '../../skeleton-loader/SkeletonLoader';
+import { IUploadField } from '../form.interface';
+import styles from '../form.module.scss';
+
+import { useUpload } from './useUpload';
 
 const UploadField: FC<IUploadField> = ({
 	placeholder,
@@ -16,7 +17,7 @@ const UploadField: FC<IUploadField> = ({
 	onChange,
 	isNoImage = false,
 }) => {
-	const { uploadImage, isLoading } = useUpload(onChange, folder)
+	const { uploadImage, isLoading } = useUpload(onChange, folder);
 
 	return (
 		<div className={cn(styles.field, styles.uploadField)} style={style}>
@@ -37,7 +38,7 @@ const UploadField: FC<IUploadField> = ({
 				)}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default UploadField
+export default UploadField;
