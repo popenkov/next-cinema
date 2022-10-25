@@ -1,24 +1,25 @@
-import { useQuery } from 'react-query'
+import { useQuery } from 'react-query';
 
-import { IOption } from '@/ui/select/select.interface'
+import { IOption } from '@/ui/select/select.interface';
 
-import { GenreService } from '@/services/genre/genre.service'
+import { GenreService } from '@/services/genre/genre.service';
 
-import { toastError } from '@/utils/api/withToastrErrorRedux'
+import { toastError } from '@/utils/api/withToastrErrorRedux';
 
 export const useAdminGenres = () => {
 	const queryData = useQuery('list of genre', () => GenreService.getAll(), {
 		select: ({ data }) =>
 			data.map(
+				//такой формат требует селект
 				(genre): IOption => ({
 					label: genre.name,
 					value: genre._id,
 				})
 			),
 		onError(error) {
-			toastError(error, 'genre list')
+			toastError(error, 'genre list');
 		},
-	})
+	});
 
-	return queryData
-}
+	return queryData;
+};
