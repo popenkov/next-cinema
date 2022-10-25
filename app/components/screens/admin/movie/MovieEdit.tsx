@@ -10,6 +10,7 @@ import Field from '@/ui/form-elements/Field';
 import SlugField from '@/ui/form-elements/SlugField/SlugField';
 import UploadField from '@/ui/form-elements/UploadField/UploadField';
 import Heading from '@/ui/heading/Heading';
+import Select from '@/ui/select/Select';
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader';
 
 import { Meta } from '@/utils/meta';
@@ -105,6 +106,7 @@ const MovieEdit: FC = () => {
 								/>
 							)}
 						/>
+
 						<Controller
 							name="actors"
 							control={control}
