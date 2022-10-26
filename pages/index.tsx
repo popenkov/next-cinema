@@ -24,6 +24,7 @@ const HomePage: NextPage<IHome> = (props) => {
 	return <Home {...props} />;
 };
 
+// getStaticProps для загрузки публичных страниц
 export const getStaticProps: GetStaticProps = async () => {
 	try {
 		const { data: movies } = await MovieService.getMovies();

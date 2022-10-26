@@ -7,11 +7,11 @@ import { TypeMaterialIconName } from '@/shared/types/icons.types';
 
 export const MaterialIcon: FC<{ name: TypeMaterialIconName }> = ({ name }) => {
 	const { isRenderClient } = useRenderClient();
-	console.log(name);
 
 	const IconComponent = MaterialIcons[name];
 
 	if (isRenderClient)
+		//исправление ошибки гидратации
 		// если не найду иконку, то по дефолту иконка справа
 		return <IconComponent /> || <MaterialIcons.MdDragIndicator />;
 	else return null;
