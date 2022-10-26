@@ -89,6 +89,15 @@ const MovieEdit: FC = () => {
 							style={{ width: '31%' }}
 						/>
 
+						{/* <Field
+							{...register('parameters.description', {
+								required: 'description is required!',
+							})}
+							placeholder="description"
+							error={errors.description?.year}
+							style={{ width: '100%' }}
+						/> */}
+
 						<Controller
 							name="genres"
 							control={control}

@@ -32,6 +32,8 @@ export const MovieService = {
 	},
 
 	async update(_id: string, data: IMovieEditInput) {
+		data.description = ''; //backend err fix
+		data.isSendTelegram = true; //backend err fix
 		return axios.put<string>(getMoviesUrl(`/${_id}`), data);
 	},
 
