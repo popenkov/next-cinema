@@ -19,7 +19,6 @@ const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 					<MenuItem key={item.link} item={item} />
 				))}
 
-				{/* {title === 'General'} */}
 				{title === 'General' ? <DynamicAuthItems /> : null}
 			</ul>
 		</div>

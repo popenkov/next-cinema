@@ -15,9 +15,7 @@ const MenuContainer: FC = () => {
 		<div>
 			<Menu menu={menus[0]} />
 
-			<Menu menu={menus[1]} />
 			<DynamicGenreMenu />
-			{/* <GenreMenu /> */}
 
 			<Menu menu={{ title: 'General', items: [] }} />
 		</div>
