@@ -116,7 +116,7 @@ module.exports = {
 					outline: 'none',
 					border: 'none',
 				},
-				'flex-center-between': {
+				'.flex-center-between': {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between',

@@ -30,6 +30,7 @@
     "react-query": "^3.39.2",
     "react-redux": "^8.0.4",
     "react-redux-toastr": "^7.6.10",
+    "react-star-rating-component": "^1.4.1",
     "sass": "^1.53.0",
     "string-strip-html": "^11.6.17"
   },
