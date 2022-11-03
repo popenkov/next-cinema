@@ -1,18 +1,19 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import Description from '@/components/ui/heading/Description'
-import Heading from '@/components/ui/heading/Heading'
+import Description from '@/components/ui/heading/Description';
+import Heading from '@/components/ui/heading/Heading';
 
-import { Meta } from '@/utils/meta'
+import { Meta } from '@/utils/meta';
 
-import CollectionItem from './CollectionItem'
-import styles from './Collections.module.scss'
-import { ICollection } from './collections.types'
+import CollectionItem from './CollectionItem';
+import styles from './Collections.module.scss';
+import { ICollection } from './collections.types';
 
-const title = 'Discovery'
-const description = 'In this section you will find all genres on our site'
+const title = 'Discovery';
+const description = 'In this section you will find all genres on our site';
 
 const Collections: FC<{ collections: ICollection[] }> = ({ collections }) => {
+	console.log(collections);
 	return (
 		<Meta title={title} description={description}>
 			<Heading title={title} className={styles.heading} />
@@ -24,7 +25,7 @@ const Collections: FC<{ collections: ICollection[] }> = ({ collections }) => {
 				))}
 			</section>
 		</Meta>
-	)
-}
+	);
+};
 
-export default Collections
+export default Collections;

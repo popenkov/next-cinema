@@ -5,10 +5,16 @@ import { ICollection } from '@/screens/collections/collections.types';
 
 import { GenreService } from '@/services/genre/genre.service';
 
+import Error404 from './404';
+
 const GenresPage: NextPage<{ collections: ICollection[] }> = ({
 	collections,
 }) => {
-	return <Collections collections={collections || []} />;
+	return collections ? (
+		<Collections collections={collections || []} />
+	) : (
+		<Error404 />
+	);
 };
 
 export const getStaticProps: GetStaticProps = async () => {
