@@ -4,9 +4,9 @@ const nextConfig = {
 	poweredByHeader: false, //для безопасности убираем информацию, что сайт сделан на Next.js
 	optimizeFonts: false,
 	env: {
-		APP_URL: process.env.REACT_APP_URL,
+		APP_URL: process.env.APP_URL,
 		APP_ENV: process.env.REACT_APP_ENV,
-		APP_SERVER_URL: process.env.REACT_SERVER_URL,
+		APP_SERVER_URL: process.env.APP_SERVER_URL,
 	},
 	// чтоюы по localhost:3000/api открывался апи бекенда ttp://localhost:4200/api/
 	//  а не апи внутри некстжс

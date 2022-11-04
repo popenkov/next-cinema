@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { toastr } from 'react-redux-toastr';
 
+import { useAuth } from '@/hooks/useAuth';
+
 import { RatingService } from '@/services/rating/rating.service';
 
 import { toastError } from '@/utils/api/withToastrErrorRedux';
 
 export const useRateMovie = (movieId: string) => {
+	const { user } = useAuth();
 	const [rating, setRating] = useState(0);
 	const [isSended, setIsSended] = useState(false);
 
@@ -17,7 +20,7 @@ export const useRateMovie = (movieId: string) => {
 			onSuccess({ data }) {
 				setRating(data);
 			},
-			enabled: !!movieId,
+			enabled: !!movieId && !!user,
 		}
 	);
 

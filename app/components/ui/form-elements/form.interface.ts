@@ -4,11 +4,12 @@ import {
 	CSSProperties,
 	InputHTMLAttributes,
 } from 'react';
-import { FieldError } from 'react-hook-form';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface IFieldProps {
 	placeholder: string;
-	error?: FieldError | undefined;
+	// error?: FieldError | undefined;
+	error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps;
@@ -16,7 +17,7 @@ type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps;
 export interface IField extends TypeInputPropsField {}
 export interface IUploadField {
 	folder?: string;
-	image?: string; //image => value
+	image?: string;
 	onChange: (...event: any[]) => void;
 	placeholder: string;
 	error?: FieldError;

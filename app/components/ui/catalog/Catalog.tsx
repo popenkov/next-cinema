@@ -9,7 +9,9 @@ import { Meta } from '@/utils/meta';
 import { getMovieUrl } from '@/configs/url.config';
 
 import styles from './Catalog.module.scss';
-import { ICatalog } from './catalog.types';
+import { ICatalog } from './catalog.interface';
+
+// import { ICatalog } from './catalog.types';
 
 const Catalog: FC<ICatalog> = ({ title, description, movies }) => {
 	return (

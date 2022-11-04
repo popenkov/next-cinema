@@ -18,5 +18,5 @@ export const useSearch = () => {
 		}
 	);
 
-	return { isSuccess, data, searchTerm };
+	return { isSuccess, popularMovies, searchTerm };
 };

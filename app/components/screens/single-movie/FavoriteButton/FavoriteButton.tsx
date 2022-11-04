@@ -1,41 +1,46 @@
-import cn from 'classnames'
-import { FC, useEffect, useState } from 'react'
-import { useMutation } from 'react-query'
+import cn from 'classnames';
+import { FC, useEffect, useState } from 'react';
+import { useMutation } from 'react-query';
 
-import { UserService } from '@/services/user/user.service'
+import { useAuth } from '@/hooks/useAuth';
 
-import { toastError } from '@/utils/api/withToastrErrorRedux'
+import { UserService } from '@/services/user/user.service';
 
-import { useFavorites } from '../../favorites/useFavorites'
+import { toastError } from '@/utils/api/withToastrErrorRedux';
 
-import styles from './FavoriteButton.module.scss'
-import HeartImage from './heart-animation.png'
+import { useFavorites } from '../../favorites/useFavorites';
+
+import styles from './FavoriteButton.module.scss';
 
 const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
-	const [isSmashed, setIsSmashed] = useState(false)
+	const { user } = useAuth();
 
-	const { favoritesMovies, refetch } = useFavorites()
+	if (!user) return null;
+
+	const [isSmashed, setIsSmashed] = useState(false);
+
+	const { favoritesMovies, refetch } = useFavorites();
 
 	useEffect(() => {
 		if (favoritesMovies) {
-			const isHasMovie = favoritesMovies.some((f) => f._id === movieId)
-			if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie)
+			const isHasMovie = favoritesMovies.some((f) => f._id === movieId);
+			if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie);
 		}
-	}, [favoritesMovies, isSmashed, movieId])
+	}, [favoritesMovies, isSmashed, movieId]);
 
 	const { mutateAsync } = useMutation(
 		'update actor',
 		() => UserService.toggleFavorite(movieId),
 		{
 			onError(error) {
-				toastError(error, 'Update favorite list')
+				toastError(error, 'Update favorite list');
 			},
 			onSuccess() {
-				setIsSmashed(!isSmashed)
-				refetch()
+				setIsSmashed(!isSmashed);
+				refetch();
 			},
 		}
-	)
+	);
 
 	return (
 		<button
@@ -43,9 +48,9 @@ const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
 			className={cn(styles.button, {
 				[styles.animate]: isSmashed,
 			})}
-			style={{ backgroundImage: `url(${HeartImage.src})` }}
+			style={{ backgroundImage: `url(/heart-animation.png)` }}
 		/>
-	)
-}
+	);
+};
 
-export default FavoriteButton
+export default FavoriteButton;
