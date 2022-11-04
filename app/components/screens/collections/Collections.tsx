@@ -13,7 +13,6 @@ const title = 'Discovery';
 const description = 'In this section you will find all genres on our site';
 
 const Collections: FC<{ collections: ICollection[] }> = ({ collections }) => {
-	console.log(collections);
 	return (
 		<Meta title={title} description={description}>
 			<Heading title={title} className={styles.heading} />

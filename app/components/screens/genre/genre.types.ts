@@ -1,6 +1,6 @@
 import { IGenre, IMovie } from '@/shared/types/movie.types';
 
 export interface IGenrePage {
-	genre: IGenre | undefined;
+	genre: IGenre;
 	movies: IMovie[];
 }

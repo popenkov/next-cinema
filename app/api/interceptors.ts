@@ -4,7 +4,8 @@ import Cookies from 'js-cookie';
 import { removeTokensStorage } from '@/services/auth/auth.helper';
 import { AuthService } from '@/services/auth/auth.service';
 
-import { API_URL } from '@/configs/api.config';
+import { API_SERVER_URL, API_URL } from '@/configs/api.config';
+import { IS_PRODUCTION } from '@/configs/constants';
 
 import { errorCatch } from './api.helpers';
 
@@ -61,7 +62,7 @@ instance.interceptors.response.use(
 export default instance;
 
 export const axiosClassic = axios.create({
-	baseURL: API_URL,
+	baseURL: IS_PRODUCTION ? API_SERVER_URL : API_URL,
 	headers: {
 		'Content-Type': 'application/json',
 	},

@@ -1,14 +1,20 @@
-import { FC } from 'react'
-import { FormState, UseFormRegister } from 'react-hook-form'
+import { FC } from 'react';
+import { FormState, UseFormRegister } from 'react-hook-form';
 
-import Field from '@/components/ui/form-elements/Field'
+import Field from '@/components/ui/form-elements/Field';
 
-import { validEmail } from '@/shared/regex'
+import { validEmail } from '@/shared/regex';
+
+// interface IAuthFields {
+// 	register: UseFormRegister<any>;
+// 	formState: FormState<any>;
+// 	isPasswordRequired?: boolean;
+// }
 
 interface IAuthFields {
-	register: UseFormRegister<any>
-	formState: FormState<any>
-	isPasswordRequired?: boolean
+	register: UseFormRegister<any>;
+	formState: FormState<any>;
+	isPasswordRequired?: boolean;
 }
 
 const AuthFields: FC<IAuthFields> = ({
@@ -47,7 +53,7 @@ const AuthFields: FC<IAuthFields> = ({
 				error={errors.password}
 			/>
 		</>
-	)
-}
+	);
+};
 
-export default AuthFields
+export default AuthFields;

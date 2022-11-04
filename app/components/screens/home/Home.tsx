@@ -10,7 +10,6 @@ import { Meta } from '@/utils/meta';
 import { IHome } from './home.types';
 
 const Home: FC<IHome> = ({ slides, trendingMovies, actors }) => {
-	console.log('slides', slides);
 	return (
 		<Meta
 			title="Watch movies online"

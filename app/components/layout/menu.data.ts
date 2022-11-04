@@ -1,4 +1,5 @@
-import { IMenu } from './menu.interface'
+// import { IMenu } from './menu.interface'
+import { IMenu } from './Navigation/MenuContainer/menu.types';
 
 export const firstMenu: IMenu = {
 	title: 'Menu',
@@ -24,9 +25,9 @@ export const firstMenu: IMenu = {
 			title: 'Trending now',
 		},
 	],
-}
+};
 
 export const userMenu: IMenu = {
 	title: 'General',
 	items: [],
-}
+};
